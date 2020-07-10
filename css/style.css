@@ -1,0 +1,28 @@
+main {
+  height: 500px;
+  border: 15px solid black;
+  width: 80%;
+  left: 0;
+  margin: 200px auto 50px;
+  background: white;
+  position: relative;
+}
+
+body {
+  background: url("../images/BackgroundImage.jpg");
+}
+
+header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  background: darkcyan;
+}
+h1 {
+  text-align: center;
+  text-justify: center;
+  color: purple;
+  margin-top: 1px;
+}
