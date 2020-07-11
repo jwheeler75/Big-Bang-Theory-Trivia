@@ -10,51 +10,47 @@ const questions = [
   new Question(
     "Who is Leonard's significant other?",
     ["Penny", "Raj", "Amy", "Sheldon"],
-    "Penny"
+    1
   ),
   new Question(
     "Who has been an astronaut?",
     ["Penny", "Sheldon", "Howard", "Raj"],
-    "Howard"
+    2
   ),
   new Question(
     "Who owns a comic book store?",
     ["Stuart", "Raj", "Amy", "Penny"],
-    "Stuart"
+    0
   ),
   new Question(
     "Who has an obsession with trains?",
     ["Sheldon", "Leonard", "Penny", "Howard"],
-    "Sheldon"
+    0
   ),
   new Question(
     "Who is from a farm in Nebraska?",
     ["Raj", "Stuart", "Bernadette", "Penny"],
-    "Penny"
+    3
   ),
   new Question(
     "Who is Howard's signicant other?",
     ["Raj", "Amy", "Bernadette", "Penny"],
-    "Bernadette"
+    2
   ),
   new Question(
     "Who is an Astrophysicist?",
     ["Howard", "Leonard", "Raj", "Sheldon"],
-    "Raj"
+    2
   ),
   new Question(
     "Who is from the great state of Texas?",
     ["Stuart", "Howard", "Bernadette", "Sheldon"],
-    "Sheldon"
+    3
   ),
   new Question(
     "Who has a dog named Cinnamon?",
     ["Penny", "Amy", "Howard", "Raj"],
-    "Raj"
+    3
   ),
-  new Question(
-    "Who loves tiaras?",
-    ["Penny", "Raj", "Amy", "Bernadette"],
-    "Amy"
-  ),
+  new Question("Who loves tiaras?", ["Penny", "Raj", "Amy", "Bernadette"], 2),
 ];
