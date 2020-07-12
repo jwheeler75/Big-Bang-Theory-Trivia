@@ -6,15 +6,30 @@ main {
   margin: 200px auto 50px;
   background: white;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
 }
-
 body {
   background: url("../images/BackgroundImage.jpg");
 }
-
+.next-question {
+  min-width: 100px;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: 2px solid black;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: black;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+.next-question:hover {
+  background-color: #3e8e41;
+}
+.next-question:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 .start-game {
   min-width: 100px;
   margin: 1rem;
@@ -24,8 +39,49 @@ body {
   font-size: 1rem;
   letter-spacing: 2px;
   color: black;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
 }
-
+.start-game:hover {
+  background-color: #3e8e41;
+}
+.start-game:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.question {
+  height: 100px;
+  width: 100%;
+  font-size: 50px;
+}
+.answer {
+  height: 200px;
+  font-size: 50px;
+}
+#button {
+  min-width: 100px;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: 2px solid black;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: black;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+#button:hover {
+  background-color: #3e8e41;
+}
+#button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.user-score {
+  font-size: 30px;
+}
 header {
   width: 100%;
   position: absolute;
@@ -39,4 +95,8 @@ h1 {
   text-justify: center;
   color: purple;
   margin-top: 1px;
+}
+.question {
+  text-align: center;
+  text-justify: center;
 }
