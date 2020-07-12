@@ -1,104 +1,128 @@
+//Create variables linked to html
 const nextButton = document.querySelector(".next-question");
 const startButton = document.querySelector(".start-game");
 const mainArea = document.querySelector("main");
 const questionsArea = document.querySelector(".question");
 const answersArea = document.querySelector(".answer");
 const userScore = document.querySelector(".user-score");
-const answerButton1 = document.querySelector(".button1");
-const answerButton2 = document.querySelector(".button2");
-const answerButton3 = document.querySelector(".button3");
-const answerButton4 = document.querySelector(".button4");
+const result = document.querySelector(".result");
+const answerButton1 = document.querySelector(".answer1");
+const answerButton2 = document.querySelector(".answer2");
+const answerButton3 = document.querySelector(".answer3");
+const answerButton4 = document.querySelector(".answer4");
+//Create Questions
 const questions = [
   {
     question: "Who is Leonard's significant other?",
-    choiceA: "Penny",
-    choiceB: "Raj",
-    choiceC: "Amy",
-    choiceD: "Sheldon",
+    answer1: "Penny",
+    answer2: "Raj",
+    answer3: "Amy",
+    answer4: "Sheldon",
     correct: "Penny",
   },
   {
     question: "Who has been an astronaut?",
-    choiceA: "Penny",
-    choiceB: "Sheldon",
-    choiceC: "Howard",
-    choiceD: "Raj",
+    answer1: "Penny",
+    answer2: "Sheldon",
+    answer3: "Howard",
+    answer4: "Raj",
     correct: "Howard",
   },
   {
     question: "Who owns a comic book store?",
-    choiceA: "Stuart",
-    choiceB: "Raj",
-    choiceC: "Amy",
-    choiceD: "Penny",
+    answer1: "Stuart",
+    answer2: "Raj",
+    answer3: "Amy",
+    answer4: "Penny",
     correct: "Stuart",
   },
   {
     question: "Who has an obsession with trains?",
-    choiceA: "Sheldon",
-    choiceB: "Leonard",
-    choiceC: "Penny",
-    choiceD: "Howard",
+    answer1: "Sheldon",
+    answer2: "Leonard",
+    answer3: "Penny",
+    answer4: "Howard",
     correct: "Sheldon",
   },
   {
     question: "Who is from a farm in Nebraska?",
-    choiceA: "Raj",
-    choiceB: "Stuart",
-    choiceC: "Bernadette",
-    choiceD: "Penny",
+    answer1: "Raj",
+    answer2: "Stuart",
+    answer3: "Bernadette",
+    answer4: "Penny",
     correct: "",
   },
   {
     question: "Who is Howard's signicant other?",
-    choiceA: "Raj",
-    choiceB: "Amy",
-    choiceC: "Bernadette",
-    choiceD: "Penny",
+    answer1: "Raj",
+    answer2: "Amy",
+    answer3: "Bernadette",
+    answer4: "Penny",
     correct: "Bernadette",
   },
   {
     question: "Who is an Astrophysicist?",
-    choiceA: "Howard",
-    choiceB: "Leonard",
-    choiceC: "Raj",
-    choiceD: "Sheldon",
+    answer1: "Howard",
+    answer2: "Leonard",
+    answer3: "Raj",
+    answer4: "Sheldon",
     correct: "Raj",
   },
   {
     question: "Who is from the great state of Texas?",
-    choiceA: "Stuart",
-    choiceB: "Howard",
-    choiceC: "Bernadette",
-    choiceD: "Sheldon",
+    answer1: "Stuart",
+    answer2: "Howard",
+    answer3: "Bernadette",
+    answer4: "Sheldon",
     correct: "Sheldon",
   },
   {
     question: "Who has a dog named Cinnamon?",
-    choiceA: "Penny",
-    choiceB: "Amy",
-    choiceC: "Howard",
-    choiceD: "Raj",
+    answer1: "Penny",
+    answer2: "Amy",
+    answer3: "Howard",
+    answer4: "Raj",
     correct: "Raj",
   },
   {
     question: "Who is giddy over tiaras?",
-    choiceA: "Penny",
-    choiceB: "Raj",
-    choiceC: "Amy",
-    choiceD: "Bernadette",
+    answer1: "Penny",
+    answer2: "Raj",
+    answer3: "Amy",
+    answer4: "Bernadette",
     correct: "Amy",
   },
 ];
+//Display Question
+
 const lastQuestion = questions.length - 1;
 let = currentQuestion = 0;
-
+let q = questions[currentQuestion];
 function displayQuestion() {
-  let q = questions[currentQuestion];
   questionsArea.innerHTML = "<p>" + q.question + "</p>";
+  answerButton1.innerHTML = q.answer1;
+  answerButton2.innerHTML = q.answer2;
+  answerButton3.innerHTML = q.answer3;
+  answerButton4.innerHTML = q.answer4;
 }
-startButton.addEventListener("click", startQuiz);
-
-function startQuiz() {
+startButton.addEventListener("click", startGame);
+nextButton.addEventListener("click", hideDisplayButton);
+function startGame() {
+  startButton.style.display = "none";
   displayQuestion();
+  answerIncorrect();
+}
+
+function answerCorrect() {
+  result.innerHTML =
+    "Good Job! Your Answer is correct. Click next to continue.";
+  nextButton.style.display = "block";
+}
+
+function answerIncorrect() {
+  result.innerHTML = `Are you sure you have seen the show? The correct answer is ${q.correct}. Click next to continue.`;
+  nextButton.style.display = "block";
+}
+function hideDisplayButton() {
+  nextButton.style.display = "none";
 }

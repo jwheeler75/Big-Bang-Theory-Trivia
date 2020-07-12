@@ -50,10 +50,19 @@ body {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+.result {
+  height: 100px;
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  text-justify: center;
+}
 .question {
   height: 100px;
   width: 100%;
   font-size: 50px;
+  text-align: center;
+  text-justify: center;
 }
 .answer {
   height: 200px;
@@ -95,8 +104,4 @@ h1 {
   text-justify: center;
   color: purple;
   margin-top: 1px;
-}
-.question {
-  text-align: center;
-  text-justify: center;
 }
