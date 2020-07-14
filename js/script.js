@@ -112,7 +112,6 @@ class Quiz {
     answerButton2.innerText = this.q.answer2;
     answerButton3.innerText = this.q.answer3;
     answerButton4.innerText = this.q.answer4;
-    this.unhideResult();
   };
   answerCorrect = () => {
     result.style.display = "block";
@@ -149,7 +148,7 @@ class Quiz {
     result.style.display = "block";
   };
   clearResult = () => {
-    result.innerText = "";
+    result.style.display = "none";
   };
   hideQuestionNumber = () => {
     questionNumber.style.display = "none";

@@ -6,6 +6,10 @@ main {
   margin: 200px auto 50px;
   background: white;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 body {
   background: url("../images/BackgroundImage.jpg");
@@ -21,6 +25,7 @@ body {
   color: black;
   border-radius: 15px;
   box-shadow: 0 9px #999;
+  flex-basis: 10px;
 }
 .next-question:hover {
   background-color: #3e8e41;
@@ -72,9 +77,12 @@ body {
   text-justify: center;
 }
 .answer {
-  height: 200px;
+  height: 100px;
   font-size: 50px;
+  display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 .button {
   min-width: 100px;
