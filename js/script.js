@@ -92,7 +92,8 @@ class Quiz {
         correct: "Amy",
       },
     ];
-    this.lastQuestion = this.questions.length - 1;
+    // this.lastQuestion = this.questions.length - 1;
+    this.lastQuestion = 2;
     this.currentQuestion = 0;
     this.score = 0;
     this.q = this.questions[this.currentQuestion];
@@ -176,16 +177,18 @@ class Quiz {
     this.hideResults();
     this.startGame();
   };
-  isQuizComplete = () => {
-    if (this.currentQuestion > this.lastQuestion) {
-      this.unhideRestartButton();
-      this.hideNextButton();
-      this.hideScore();
-      this.hideQuestions();
-      this.hideAnswerButtons();
-      this.unhideResult();
-      result.innerHTML = `<p>You scored ${this.score}/10!<br>Click on restart to play again!</p>`;
-    }
+  quizComplete = () => {
+    console.log(this.currentQuestion);
+    console.log(this.lastQuestion);
+    // if (this.currentQuestion > this.lastQuestion) {
+    this.unhideRestartButton();
+    this.hideNextButton();
+    this.hideScore();
+    this.hideQuestions();
+    this.hideAnswerButtons();
+    this.unhideResult();
+    result.innerHTML = `<p>You scored ${this.score}/10!<br>Click on restart to play again!</p>`;
+    // }
   };
   answerInput = (event) => {
     // console.log(event.target.innerText);
@@ -197,11 +200,15 @@ class Quiz {
     this.validateAnswer(answer);
   };
   nextQuestion = () => {
-    this.hideNextButton();
-    this.clearResult();
-    this.displayQuestion();
-    this.unhideQuestions();
-    this.unhideAnswerButtons();
+    if (this.currentQuestion > this.lastQuestion) {
+      this.quizComplete();
+    } else {
+      this.hideNextButton();
+      this.clearResult();
+      this.displayQuestion();
+      this.unhideQuestions();
+      this.unhideAnswerButtons();
+    }
   };
   validateAnswer = (answer) => {
     if (answer == this.q.correct) {
@@ -214,8 +221,8 @@ class Quiz {
       this.currentQuestion++;
       this.q = this.questions[this.currentQuestion];
     }
-    if (this.isQuizComplete()) {
-    }
+    // if (this.isQuizComplete()) {
+    // }
   };
 }
 
