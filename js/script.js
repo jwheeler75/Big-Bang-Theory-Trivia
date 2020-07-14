@@ -89,6 +89,7 @@ class Quiz {
   }
   startGame = () => {
     this.displayQuestion();
+    userScore.style.display = "block";
     startButton.style.display = "none";
     this.unhideAnswerButtons();
   };
