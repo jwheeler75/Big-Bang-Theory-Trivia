@@ -118,6 +118,8 @@ body {
 }
 .user-score {
   font-size: 30px;
+  text-align: center;
+  text-justify: center;
 }
 header {
   width: 100%;
