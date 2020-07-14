@@ -2,6 +2,7 @@ class Quiz {
   constructor() {
     this.questions = [
       {
+        questionNum: "1",
         question: "Who is Leonard's significant other?",
         answer1: "Penny",
         answer2: "Raj",
@@ -10,6 +11,7 @@ class Quiz {
         correct: "Penny",
       },
       {
+        questionNum: "2",
         question: "Who has been an astronaut?",
         answer1: "Penny",
         answer2: "Sheldon",
@@ -18,6 +20,7 @@ class Quiz {
         correct: "Howard",
       },
       {
+        questionNum: "3",
         question: "Who owns a comic book store?",
         answer1: "Stuart",
         answer2: "Raj",
@@ -26,6 +29,7 @@ class Quiz {
         correct: "Stuart",
       },
       {
+        questionNum: "4",
         question: "Who has an obsession with trains?",
         answer1: "Sheldon",
         answer2: "Leonard",
@@ -34,6 +38,7 @@ class Quiz {
         correct: "Sheldon",
       },
       {
+        questionNum: "5",
         question: "Who is from a farm in Nebraska?",
         answer1: "Raj",
         answer2: "Stuart",
@@ -42,6 +47,7 @@ class Quiz {
         correct: "Penny",
       },
       {
+        questionNum: "6",
         question: "Who is Howard's signicant other?",
         answer1: "Raj",
         answer2: "Amy",
@@ -50,6 +56,7 @@ class Quiz {
         correct: "Bernadette",
       },
       {
+        questionNum: "7",
         question: "Who is an Astrophysicist?",
         answer1: "Howard",
         answer2: "Leonard",
@@ -58,6 +65,7 @@ class Quiz {
         correct: "Raj",
       },
       {
+        questionNum: "8",
         question: "Who is from the great state of Texas?",
         answer1: "Stuart",
         answer2: "Howard",
@@ -66,6 +74,7 @@ class Quiz {
         correct: "Sheldon",
       },
       {
+        questionNum: "9",
         question: "Who has a dog named Cinnamon?",
         answer1: "Penny",
         answer2: "Amy",
@@ -74,6 +83,7 @@ class Quiz {
         correct: "Raj",
       },
       {
+        questionNum: "10",
         question: "Who is giddy over tiaras?",
         answer1: "Penny",
         answer2: "Raj",
@@ -146,16 +156,37 @@ class Quiz {
   unhideRestartButton = () => {
     restartButton.style.display = "inline";
   };
+  hideScore = () => {
+    userScore.style.display = "none";
+  };
+  hideRestartButton = () => {
+    restartButton.style.display = "none";
+  };
+  hideResults = () => {
+    result.style.display = "none";
+  };
   restartGame = () => {
+    this.lastQuestion = this.questions.length - 1;
+    this.currentQuestion = 0;
+    this.score = 0;
+    this.q = this.questions[this.currentQuestion];
+    this.hideRestartButton();
+    this.hideScore();
+    this.hideAnswerButtons();
+    this.hideResults();
     this.startGame();
   };
-
-  // isQuizComplete = () => {
-  //   if (this.currentQuestion == this.lastQuestion){
-  // this.unhideRestartButton();
-  //   result.innerHTML = `<p>You scored${this.score}/10.<br>Click on restart to play again!</p>`;
-  // };
-
+  isQuizComplete = () => {
+    if (this.currentQuestion > this.lastQuestion) {
+      this.unhideRestartButton();
+      this.hideNextButton();
+      this.hideScore();
+      this.hideQuestions();
+      this.hideAnswerButtons();
+      this.unhideResult();
+      result.innerHTML = `<p>You scored ${this.score}/10!<br>Click on restart to play again!</p>`;
+    }
+  };
   answerInput = (event) => {
     // console.log(event.target.innerText);
     // grab the text from answerButton1 element and store in a variable
@@ -166,8 +197,6 @@ class Quiz {
     this.validateAnswer(answer);
   };
   nextQuestion = () => {
-    this.currentQuestion++;
-    this.q = this.questions[this.currentQuestion];
     this.hideNextButton();
     this.clearResult();
     this.displayQuestion();
@@ -175,15 +204,17 @@ class Quiz {
     this.unhideAnswerButtons();
   };
   validateAnswer = (answer) => {
-    console.log(answer);
-    console.log(this.currentQuestion);
-    console.log(this.lastQuestion);
-    console.log(this.q);
     if (answer == this.q.correct) {
       this.answerCorrect();
+      this.currentQuestion++;
+      this.q = this.questions[this.currentQuestion];
       this.advanceScore();
     } else {
       this.answerIncorrect();
+      this.currentQuestion++;
+      this.q = this.questions[this.currentQuestion];
+    }
+    if (this.isQuizComplete()) {
     }
   };
 }
