@@ -4,7 +4,7 @@ main {
   width: 80%;
   left: 0;
   margin: 200px auto 50px;
-  background: white;
+  background: orange;
   position: relative;
   display: flex;
   flex-direction: column;
