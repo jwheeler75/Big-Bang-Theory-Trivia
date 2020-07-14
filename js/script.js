@@ -93,12 +93,13 @@ class Quiz {
       },
     ];
     // this.lastQuestion = this.questions.length - 1;
-    this.lastQuestion = 2;
+    this.lastQuestion = 1;
     this.currentQuestion = 0;
     this.score = 0;
     this.q = this.questions[this.currentQuestion];
   }
   startGame = () => {
+    this.unhideQuestions();
     this.displayQuestion();
     userScore.style.display = "block";
     startButton.style.display = "none";
@@ -113,6 +114,7 @@ class Quiz {
     this.unhideResult();
   };
   answerCorrect = () => {
+    result.style.display = "block";
     result.innerHTML =
       "<p>Good Job! Your Answer is correct.<br>Click next to continue.</p>";
     nextButton.style.display = "block";
@@ -122,6 +124,7 @@ class Quiz {
     userScore.innerHTML = `<p>Score<br>${this.score}/10</p>`;
   };
   answerIncorrect = () => {
+    result.style.display = "block";
     result.innerHTML = `<p>Are you sure you have seen the show?<br>The correct answer is ${this.q.correct}.<br>Click next to continue.</p>`;
     nextButton.style.display = "block";
   };
@@ -166,21 +169,23 @@ class Quiz {
   hideResults = () => {
     result.style.display = "none";
   };
-  restartGame = () => {
-    this.lastQuestion = this.questions.length - 1;
-    this.currentQuestion = 0;
+  clearScore = () => {
     this.score = 0;
-    this.q = this.questions[this.currentQuestion];
+  };
+  restartGame = () => {
+    // this.lastQuestion = this.questions.length - 1;
+    // this.currentQuestion = 0;
+    // this.q = this.questions[this.currentQuestion];
     this.hideRestartButton();
-    this.hideScore();
-    this.hideAnswerButtons();
+    // this.hideAnswerButtons();
+    this.clearScore();
+    this.clearResult();
     this.hideResults();
+    console.log(this.score);
+    userScore.innerHTML = `<p>Score<br>${this.score}/10</p>`;
     this.startGame();
   };
   quizComplete = () => {
-    console.log(this.currentQuestion);
-    console.log(this.lastQuestion);
-    // if (this.currentQuestion > this.lastQuestion) {
     this.unhideRestartButton();
     this.hideNextButton();
     this.hideScore();
@@ -188,7 +193,6 @@ class Quiz {
     this.hideAnswerButtons();
     this.unhideResult();
     result.innerHTML = `<p>You scored ${this.score}/10!<br>Click on restart to play again!</p>`;
-    // }
   };
   answerInput = (event) => {
     // console.log(event.target.innerText);
@@ -221,8 +225,6 @@ class Quiz {
       this.currentQuestion++;
       this.q = this.questions[this.currentQuestion];
     }
-    // if (this.isQuizComplete()) {
-    // }
   };
 }
 
