@@ -96,6 +96,26 @@ body {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+.restart-game {
+  min-width: 100px;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: 2px solid black;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: black;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+.restart-game:hover {
+  background-color: #3e8e41;
+}
+.restart-game:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 .user-score {
   font-size: 30px;
 }
