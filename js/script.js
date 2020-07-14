@@ -92,8 +92,8 @@ class Quiz {
         correct: "Amy",
       },
     ];
-    // this.lastQuestion = this.questions.length - 1;
-    this.lastQuestion = 1;
+    this.lastQuestion = this.questions.length - 1;
+    // this.lastQuestion = 1;
     this.currentQuestion = 0;
     this.score = 0;
     this.q = this.questions[this.currentQuestion];
@@ -149,6 +149,7 @@ class Quiz {
   };
   clearResult = () => {
     result.innerText = "";
+    // console.log(result);
     // result.style.display = "none";
   };
   hideQuestions = () => {
@@ -173,11 +174,10 @@ class Quiz {
     this.score = 0;
   };
   restartGame = () => {
-    // this.lastQuestion = this.questions.length - 1;
-    // this.currentQuestion = 0;
-    // this.q = this.questions[this.currentQuestion];
+    this.lastQuestion = this.questions.length - 1;
+    this.currentQuestion = 0;
+    this.q = this.questions[this.currentQuestion];
     this.hideRestartButton();
-    // this.hideAnswerButtons();
     this.clearScore();
     this.clearResult();
     this.hideResults();
