@@ -2,7 +2,7 @@ class Quiz {
   constructor() {
     this.questions = [
       {
-        questionNum: "1",
+        questionNum: "Question 1",
         question: "Who is Leonard's significant other?",
         answer1: "Penny",
         answer2: "Raj",
@@ -11,7 +11,7 @@ class Quiz {
         correct: "Penny",
       },
       {
-        questionNum: "2",
+        questionNum: "Question 2",
         question: "Who has been an astronaut?",
         answer1: "Penny",
         answer2: "Sheldon",
@@ -20,7 +20,7 @@ class Quiz {
         correct: "Howard",
       },
       {
-        questionNum: "3",
+        questionNum: "Question 3",
         question: "Who owns a comic book store?",
         answer1: "Stuart",
         answer2: "Raj",
@@ -29,7 +29,7 @@ class Quiz {
         correct: "Stuart",
       },
       {
-        questionNum: "4",
+        questionNum: "Question 4",
         question: "Who has an obsession with trains?",
         answer1: "Sheldon",
         answer2: "Leonard",
@@ -38,7 +38,7 @@ class Quiz {
         correct: "Sheldon",
       },
       {
-        questionNum: "5",
+        questionNum: "Question 5",
         question: "Who is from a farm in Nebraska?",
         answer1: "Raj",
         answer2: "Stuart",
@@ -47,7 +47,7 @@ class Quiz {
         correct: "Penny",
       },
       {
-        questionNum: "6",
+        questionNum: "Question 6",
         question: "Who is Howard's signicant other?",
         answer1: "Raj",
         answer2: "Amy",
@@ -56,7 +56,7 @@ class Quiz {
         correct: "Bernadette",
       },
       {
-        questionNum: "7",
+        questionNum: "Question 7",
         question: "Who is an Astrophysicist?",
         answer1: "Howard",
         answer2: "Leonard",
@@ -65,7 +65,7 @@ class Quiz {
         correct: "Raj",
       },
       {
-        questionNum: "8",
+        questionNum: "Question 8",
         question: "Who is from the great state of Texas?",
         answer1: "Stuart",
         answer2: "Howard",
@@ -74,7 +74,7 @@ class Quiz {
         correct: "Sheldon",
       },
       {
-        questionNum: "9",
+        questionNum: "Question 9",
         question: "Who has a dog named Cinnamon?",
         answer1: "Penny",
         answer2: "Amy",
@@ -83,7 +83,7 @@ class Quiz {
         correct: "Raj",
       },
       {
-        questionNum: "10",
+        questionNum: "Question 10",
         question: "Who is giddy over tiaras?",
         answer1: "Penny",
         answer2: "Raj",
@@ -93,7 +93,6 @@ class Quiz {
       },
     ];
     this.lastQuestion = this.questions.length - 1;
-    // this.lastQuestion = 1;
     this.currentQuestion = 0;
     this.score = 0;
     this.q = this.questions[this.currentQuestion];
@@ -104,9 +103,11 @@ class Quiz {
     userScore.style.display = "block";
     startButton.style.display = "none";
     this.unhideAnswerButtons();
+    this.unhideQuestionNumber();
   };
   displayQuestion = () => {
     questionsArea.innerHTML = "<p>" + this.q.question + "</p>";
+    questionNumber.innerHTML = "<p>" + this.q.questionNum + "</p>";
     answerButton1.innerText = this.q.answer1;
     answerButton2.innerText = this.q.answer2;
     answerButton3.innerText = this.q.answer3;
@@ -149,8 +150,12 @@ class Quiz {
   };
   clearResult = () => {
     result.innerText = "";
-    // console.log(result);
-    // result.style.display = "none";
+  };
+  hideQuestionNumber = () => {
+    questionNumber.style.display = "none";
+  };
+  unhideQuestionNumber = () => {
+    questionNumber.style.display = "block";
   };
   hideQuestions = () => {
     questionsArea.style.display = "none";
@@ -201,6 +206,7 @@ class Quiz {
     //  call validateAnswer function passing the variable as argument
     this.hideAnswerButtons();
     this.hideQuestions();
+    this.hideQuestionNumber();
     this.validateAnswer(answer);
   };
   nextQuestion = () => {
@@ -211,6 +217,7 @@ class Quiz {
       this.clearResult();
       this.displayQuestion();
       this.unhideQuestions();
+      this.unhideQuestionNumber();
       this.unhideAnswerButtons();
     }
   };
@@ -235,6 +242,7 @@ const nextButton = document.querySelector(".next-question");
 const startButton = document.querySelector(".start-game");
 const mainArea = document.querySelector("main");
 const questionsArea = document.querySelector(".question");
+const questionNumber = document.querySelector(".question-number");
 const answersArea = document.querySelector(".answer");
 const userScore = document.querySelector(".user-score");
 const result = document.querySelector(".result");

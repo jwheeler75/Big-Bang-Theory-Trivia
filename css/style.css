@@ -50,13 +50,19 @@ body {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+.question-number {
+  height: 10px;
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  text-justify: center;
+}
 .result {
   height: 100px;
   width: 100%;
   font-size: 30px;
   text-align: center;
   text-justify: center;
-  display: none;
 }
 .question {
   height: 100px;
