@@ -60,21 +60,18 @@ body {
   width: 100%;
   font-size: 30px;
   text-align: center;
-  text-justify: center;
 }
 .result {
   height: 100px;
   width: 100%;
   font-size: 30px;
   text-align: center;
-  text-justify: center;
 }
 .question {
   height: 100px;
   width: 100%;
   font-size: 50px;
   text-align: center;
-  text-justify: center;
 }
 .answer {
   height: 100px;
@@ -127,7 +124,6 @@ body {
 .user-score {
   font-size: 30px;
   text-align: center;
-  text-justify: center;
 }
 header {
   width: 100%;
@@ -139,7 +135,6 @@ header {
 }
 h1 {
   text-align: center;
-  text-justify: center;
   color: purple;
   margin-top: 1px;
 }
