@@ -1,4 +1,4 @@
-// Create Object Class
+// Create Class
 class Quiz {
   constructor() {
     // Create questions and answers array
@@ -136,6 +136,10 @@ class Quiz {
     result.innerHTML = `<p>Are you sure you have seen the show?<br>The correct answer is ${this.q.correct}.<br>Click next to continue.</p>`;
     nextButton.style.display = "block";
   };
+  // Create sound event for game start
+  playAudio = () => {
+    playMusic.play();
+  };
   // Create DOM manipulation methods
   hideNextButton = () => {
     nextButton.style.display = "none";
@@ -247,10 +251,11 @@ class Quiz {
     }
   };
 }
-//Create game from object
+//Create game object from class Quiz
 const myGame = new Quiz();
 
 //Create variables linked to html
+const playMusic = document.querySelector(".gameMusic");
 const nextButton = document.querySelector(".next-question");
 const startButton = document.querySelector(".start-game");
 const mainArea = document.querySelector("main");
@@ -268,6 +273,7 @@ const restartButton = document.querySelector(".restart-game");
 
 // Create event listeners
 startButton.addEventListener("click", myGame.startGame);
+startButton.addEventListener("click", myGame.playAudio);
 nextButton.addEventListener("click", myGame.nextQuestion);
 answerButton1.addEventListener("click", myGame.answerInput);
 answerButton2.addEventListener("click", myGame.answerInput);
