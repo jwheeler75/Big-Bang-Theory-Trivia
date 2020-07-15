@@ -136,7 +136,7 @@ class Quiz {
     result.innerHTML = `<p>Are you sure you have seen the show?<br>The correct answer is ${this.q.correct}.<br>Click next to continue.</p>`;
     nextButton.style.display = "block";
   };
-  // Create sound event for game start
+  // Create method for sound event for game start
   playAudio = () => {
     playMusic.play();
   };
