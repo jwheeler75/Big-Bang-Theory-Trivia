@@ -1,5 +1,7 @@
+// Create Object Class
 class Quiz {
   constructor() {
+    // Create questions and answers array
     this.questions = [
       {
         questionNum: "Question 1",
@@ -92,11 +94,13 @@ class Quiz {
         correct: "Amy",
       },
     ];
+    // Game start variables
     this.lastQuestion = this.questions.length - 1;
     this.currentQuestion = 0;
     this.score = 0;
     this.q = this.questions[this.currentQuestion];
   }
+  // Start game tasks
   startGame = () => {
     this.unhideQuestions();
     this.displayQuestion();
@@ -105,6 +109,7 @@ class Quiz {
     this.unhideAnswerButtons();
     this.unhideQuestionNumber();
   };
+  //Display Question
   displayQuestion = () => {
     questionsArea.innerHTML = "<p>" + this.q.question + "</p>";
     questionNumber.innerHTML = "<p>" + this.q.questionNum + "</p>";
@@ -113,21 +118,25 @@ class Quiz {
     answerButton3.innerText = this.q.answer3;
     answerButton4.innerText = this.q.answer4;
   };
+  // Preform answer corrects tasks
   answerCorrect = () => {
     result.style.display = "block";
     result.innerHTML =
       "<p>Good Job! Your Answer is correct.<br>Click next to continue.</p>";
     nextButton.style.display = "block";
   };
+  // Advance game score
   advanceScore = () => {
     this.score++;
     userScore.innerHTML = `<p>Score<br>${this.score}/10</p>`;
   };
+  // Perform answer incorrect tasks
   answerIncorrect = () => {
     result.style.display = "block";
     result.innerHTML = `<p>Are you sure you have seen the show?<br>The correct answer is ${this.q.correct}.<br>Click next to continue.</p>`;
     nextButton.style.display = "block";
   };
+  // Create DOM manipulation methods
   hideNextButton = () => {
     nextButton.style.display = "none";
     result.style.display = "none";
@@ -174,9 +183,11 @@ class Quiz {
   hideResults = () => {
     result.style.display = "none";
   };
+  // Reset game score method
   clearScore = () => {
     this.score = 0;
   };
+  // Perform restart game tasks
   restartGame = () => {
     this.lastQuestion = this.questions.length - 1;
     this.currentQuestion = 0;
@@ -189,6 +200,7 @@ class Quiz {
     userScore.innerHTML = `<p>Score<br>${this.score}/10</p>`;
     this.startGame();
   };
+  // Perform tasks when quiz is complete
   quizComplete = () => {
     this.unhideRestartButton();
     this.hideNextButton();
@@ -198,8 +210,8 @@ class Quiz {
     this.unhideResult();
     result.innerHTML = `<p>You scored ${this.score}/10!<br>Click on restart to play again!</p>`;
   };
+  // Use answer input
   answerInput = (event) => {
-    // console.log(event.target.innerText);
     // grab the text from answerButton1 element and store in a variable
     const answer = event.target.innerText;
     //  call validateAnswer function passing the variable as argument
@@ -208,6 +220,7 @@ class Quiz {
     this.hideQuestionNumber();
     this.validateAnswer(answer);
   };
+  // Goto next question
   nextQuestion = () => {
     if (this.currentQuestion > this.lastQuestion) {
       this.quizComplete();
@@ -220,6 +233,7 @@ class Quiz {
       this.unhideAnswerButtons();
     }
   };
+  // Vailidate Answer
   validateAnswer = (answer) => {
     if (answer == this.q.correct) {
       this.answerCorrect();
@@ -233,7 +247,7 @@ class Quiz {
     }
   };
 }
-
+//Create game from object
 const myGame = new Quiz();
 
 //Create variables linked to html
@@ -252,6 +266,7 @@ const answerButton4 = document.querySelector("#answer4");
 const allAnswerButtons = document.querySelectorAll(".button");
 const restartButton = document.querySelector(".restart-game");
 
+// Create event listeners
 startButton.addEventListener("click", myGame.startGame);
 nextButton.addEventListener("click", myGame.nextQuestion);
 answerButton1.addEventListener("click", myGame.answerInput);
