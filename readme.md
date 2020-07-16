@@ -9,7 +9,7 @@ None needed, runs in browser.
 Links
 
 Wireframe
- 
+https://github.com/jwheeler75/Big-Bang-Theory-Trivia/blob/master/images/Wireframe.JPG 
 
 
 Game Link
