@@ -96,7 +96,8 @@ class Quiz {
     ];
     // Game start variables
     this.lastQuestion = this.questions.length - 1;
-    this.currentQuestion = 0;
+    // this.randomQuestion = Math.floor(Math.random() * this.questions.length);
+    this.currentQuestion = 0; //this.randomQuestion;
     this.score = 0;
     this.q = this.questions[this.currentQuestion];
   }
